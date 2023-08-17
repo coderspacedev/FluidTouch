@@ -1,0 +1,10 @@
+
+uniform sampler2D texPrecompDetail;
+uniform float tmp;
+
+vec3 applyDetail(vec3 color)
+{
+	float detail = texture2D(texPrecompDetail, varyTexCoord).a;
+	color *= detail;
+	return (1.0 - tmp)  * vec3(color) + tmp * vec3(detail);
+}

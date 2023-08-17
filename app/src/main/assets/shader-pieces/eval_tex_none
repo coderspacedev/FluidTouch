@@ -1,0 +1,5 @@
+
+vec3 evalFluidTex(vec4 tex)
+{
+	return tex.rgb;
+}

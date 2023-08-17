@@ -1,0 +1,5 @@
+precision mediump float;
+
+varying highp vec2 varyTexCoord;
+uniform sampler2D texFluid;
+uniform float uClampColors;

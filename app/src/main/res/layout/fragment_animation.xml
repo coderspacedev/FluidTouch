@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.fluidsimulation.widgets.SquircleCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/colorLightCard"
+                app:cardCornerRadius="@dimen/_4sdp"
+                app:cardUseCompatPadding="true">
+
+                <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_12sdp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Paint Quality (Resolution)"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_paint_quality"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:boxBackgroundColor="@color/colorBackground"
+                        app:boxBackgroundMode="filled"
+                        app:endIconTint="@color/colorIcon"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/edit_paint_quality"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:includeFontPadding="false"
+                            android:inputType="none"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/colorText"
+                            app:fontFamily="@font/regular"
+                            app:hintTextColor="@color/colorText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/ic_gradient_divider" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Simulation Resolution"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_simulation_resolution"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:boxBackgroundColor="@color/colorBackground"
+                        app:boxBackgroundMode="filled"
+                        app:endIconTint="@color/colorIcon"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/edit_simulation_resolution"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Medium Recommended"
+                            android:includeFontPadding="false"
+                            android:inputType="none"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/colorText"
+                            app:fontFamily="@font/regular"
+                            app:hintTextColor="@color/colorText" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/ic_gradient_divider" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Glow/Light/Shadow Quality"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_glow_light_shadow_quality"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:boxBackgroundColor="@color/colorBackground"
+                        app:boxBackgroundMode="filled"
+                        app:endIconTint="@color/colorIcon"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/edit_glow_light_shadow_quality"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="High"
+                            android:includeFontPadding="false"
+                            android:inputType="none"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/colorText"
+                            app:fontFamily="@font/regular"
+                            app:hintTextColor="@color/colorText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/ic_gradient_divider" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Fluid Type"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="Smoke is steady and relaxing. Water is more dynamic and swirly"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <RadioGroup
+                        android:id="@+id/fluid_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/fluid_type_smoke"
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_32sdp"
+                            android:button="@drawable/ic_check_box"
+                            android:paddingHorizontal="@dimen/_8sdp"
+                            android:text="Smoke"
+                            android:textColor="@color/colorText"
+                            android:textSize="@dimen/_12sdp"
+                            app:buttonTint="@color/ic_radio_item_tint"
+                            app:useMaterialThemeColors="false" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/fluid_type_water"
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_32sdp"
+                            android:button="@drawable/ic_check_box"
+                            android:paddingHorizontal="@dimen/_8sdp"
+                            android:text="Water"
+                            android:textColor="@color/colorText"
+                            android:textSize="@dimen/_12sdp"
+                            app:buttonTint="@color/ic_radio_item_tint"
+                            app:useMaterialThemeColors="false" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/fluid_type_jello"
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_32sdp"
+                            android:button="@drawable/ic_check_box"
+                            android:paddingHorizontal="@dimen/_8sdp"
+                            android:text="Jello"
+                            android:textColor="@color/colorText"
+                            android:textSize="@dimen/_12sdp"
+                            app:buttonTint="@color/ic_radio_item_tint"
+                            app:useMaterialThemeColors="false" />
+
+                    </RadioGroup>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/ic_gradient_divider" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Lifeline"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="How long do the swipes and swirls persist?"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slider_lifeline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="100"
+                        app:thumbColor="@color/colorIcon"
+                        app:trackColorActive="@color/colorAccent"
+                        app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/ic_gradient_divider" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Swirliness"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="Tendency of the fluid to be swirly, but also more irregular and jagged."
+                        android:textSize="@dimen/_10sdp" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slider_swirliness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="100"
+                        app:thumbColor="@color/colorIcon"
+                        app:trackColorActive="@color/colorAccent"
+                        app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@drawable/ic_gradient_divider" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:text="Sources"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="Tired fingers? Draw effects automatically for you."
+                        android:textSize="@dimen/_10sdp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_sources"
+                        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:boxBackgroundColor="@color/colorBackground"
+                        app:boxBackgroundMode="filled"
+                        app:endIconTint="@color/colorIcon"
+                        app:hintEnabled="false">
+
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/edit_sources"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="1 Finger"
+                            android:includeFontPadding="false"
+                            android:inputType="none"
+                            android:padding="@dimen/_10sdp"
+                            android:textColor="@color/colorText"
+                            app:fontFamily="@font/regular"
+                            app:hintTextColor="@color/colorText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="Source Speed"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slider_source_speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="100"
+                        app:thumbColor="@color/colorIcon"
+                        app:trackColorActive="@color/colorAccent"
+                        app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/is_source_enable_on_resume"
+                        style="@style/Theme.WallpaperGallery.TextMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:button="@drawable/ic_check_box"
+                        android:gravity="start|center_vertical"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:text="Quick sources on app resume"
+                        android:textSize="@dimen/_12sdp"
+                        app:buttonTint="@color/ic_radio_item_tint" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/Theme.WallpaperGallery.TextRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="Automatic sources will appear briefly whenever you open the app/display the live wallpaper."
+                        android:textSize="@dimen/_10sdp" />
+                </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+            </com.fluidsimulation.widgets.SquircleCardView>
+
+        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</com.google.android.material.circularreveal.CircularRevealLinearLayout>

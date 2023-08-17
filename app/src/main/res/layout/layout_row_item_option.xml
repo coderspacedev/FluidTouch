@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textview.MaterialTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_view"
+    style="@style/Theme.WallpaperGallery.TextRegular"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start"
+    android:background="@color/colorLightCard"
+    android:gravity="start"
+    android:padding="@dimen/_8sdp"
+    android:text=""
+    android:textSize="@dimen/_12sdp" />

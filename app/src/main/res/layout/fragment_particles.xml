@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <com.google.android.material.circularreveal.CircularRevealFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.fluidsimulation.widgets.SquircleCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorLightCard"
+                    app:cardCornerRadius="@dimen/_4sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_12sdp"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/is_particles"
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:button="@drawable/ic_check_box"
+                            android:gravity="start|center_vertical"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:text="Particles"
+                            android:textSize="@dimen/_12sdp"
+                            app:buttonTint="@color/ic_radio_item_tint" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Mode"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <RadioGroup
+                            android:id="@+id/action_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_add_on_touch"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Add on touch"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_fill_screen"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Fill screen"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+                        </RadioGroup>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Shape"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <RadioGroup
+                            android:id="@+id/action_shape"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_dots"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Dots"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_lines"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Lines"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_stars"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Stars"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                        </RadioGroup>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Amount"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="How much paint flows out of your fingers?"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Lifetime"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="How long will fluids stay on screen?"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_lifetime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Size"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_size"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Colors"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <RadioGroup
+                            android:id="@+id/action_colors"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_use_paint_colors"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Use paint colors"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_use_separate_color"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Use separate color"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                        </RadioGroup>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:id="@+id/layout_color_palette"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <com.fluidsimulation.widgets.SquircleCardView
+                                android:id="@+id/view_selected_color"
+                                android:layout_width="@dimen/_36sdp"
+                                android:layout_height="@dimen/_36sdp"
+                                app:cardBackgroundColor="@color/colorWhite"
+                                app:cardCornerRadius="@dimen/_18sdp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/button_choose_background"
+                                style="@style/Theme.WallpaperGallery.MaterialButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:fontFamily="@font/regular"
+                                android:text="Choose Background"
+                                android:textAllCaps="false"
+                                android:textSize="@dimen/_14sdp"
+                                app:backgroundTint="@color/colorBackground"
+                                app:rippleColor="@color/colorLightCard" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+                    </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+                </com.fluidsimulation.widgets.SquircleCardView>
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+        </com.google.android.material.circularreveal.CircularRevealFrameLayout>
+    </androidx.core.widget.NestedScrollView>
+</com.google.android.material.circularreveal.CircularRevealLinearLayout>

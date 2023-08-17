@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_2sdp"
+    android:background="@color/colorTransparent">
+
+    <com.fluidsimulation.widgets.LandscapeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.fluidsimulation.widgets.SquircleCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/colorLightCard"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="0dp"
+            android:id="@+id/card"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true"
+            app:strokeColor="@color/colorAccent"
+            app:strokeWidth="@dimen/_0sdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_media"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+        </com.fluidsimulation.widgets.SquircleCardView>
+    </com.fluidsimulation.widgets.LandscapeLayout>
+</com.google.android.material.circularreveal.CircularRevealFrameLayout>

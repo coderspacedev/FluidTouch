@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.CircularRevealLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <com.google.android.material.circularreveal.CircularRevealFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.fluidsimulation.widgets.SquircleCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorLightCard"
+                    app:cardCornerRadius="@dimen/_4sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_12sdp"
+                        android:paddingVertical="@dimen/_8sdp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:text="Screen edge mode"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="How the fluid behaves at the edges of the screen?"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <RadioGroup
+                            android:id="@+id/action_edge_mode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_wall"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Wall"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_wrap"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Wrap"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/action_wrap_mirror"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Wrap and Mirror"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+                        </RadioGroup>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Gravity"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="Tilt your device and the fluid will follow! Make sure to disable your device's autorotate option."
+                            android:textSize="@dimen/_10sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_gravity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/is_glow"
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:button="@drawable/ic_check_box"
+                            android:gravity="start|center_vertical"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:text="Glow"
+                            android:textSize="@dimen/_12sdp"
+                            app:buttonTint="@color/ic_radio_item_tint" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Intensity"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Near"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_near"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Mid"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_mid"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Far"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_far"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Threshold"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="Higher threshold means that only brighter fluid will emit glow."
+                            android:textSize="@dimen/_10sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_threshold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Particle lighting"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="The glow can act as a source of light for the particles"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_particle_lighting"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp">
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:id="@+id/is_light"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:gravity="start|center_vertical"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Light"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint" />
+
+                            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                                android:id="@+id/layout_color_palette"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <com.fluidsimulation.widgets.SquircleCardView
+                                    android:id="@+id/view_selected_color"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_32sdp"
+                                    app:cardBackgroundColor="@color/colorWhite"
+                                    app:cardCornerRadius="@dimen/_18sdp"
+                                    app:cardElevation="@dimen/_0sdp"
+                                    app:cardUseCompatPadding="false">
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        style="@style/Theme.WallpaperGallery.TextMedium"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Choose color"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_14sdp" />
+                                </com.fluidsimulation.widgets.SquircleCardView>
+
+                            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Intensity"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_light_intensity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Size"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_light_size"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Shadow"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:id="@+id/is_shadow"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:gravity="start|center_vertical"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Shadow"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint" />
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:id="@+id/is_self"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:gravity="start|center_vertical"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Self"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint" />
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:id="@+id/is_inverse"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:button="@drawable/ic_check_box"
+                                android:gravity="start|center_vertical"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Inverse"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Intensity"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_shadow_intensity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Length"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_shadow_length"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Speed"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_shadow_speed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Position X"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_shadow_pos_x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/Theme.WallpaperGallery.TextRegular"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="Position Y"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <com.google.android.material.slider.Slider
+                                android:id="@+id/slider_shadow_pos_y"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:valueFrom="0"
+                                android:valueTo="100"
+                                app:thumbColor="@color/colorIcon"
+                                app:trackColorActive="@color/colorAccent"
+                                app:trackColorInactive="@color/colorWhiteSubTransparent" />
+                        </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginHorizontal="@dimen/_8sdp"
+                            android:layout_marginVertical="@dimen/_4sdp"
+                            android:background="@drawable/ic_gradient_divider" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/is_fluid_texture"
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:button="@drawable/ic_check_box"
+                            android:gravity="start|center_vertical"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:text="Fluid texture"
+                            android:textSize="@dimen/_12sdp"
+                            app:buttonTint="@color/ic_radio_item_tint" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:gravity="start"
+                            android:text="Adds details to the fluid animation when you touch on screen."
+                            android:textSize="@dimen/_10sdp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/input_ice"
+                            style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            app:boxBackgroundColor="@color/colorBackground"
+                            app:boxBackgroundMode="filled"
+                            app:endIconTint="@color/colorIcon"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/edit_fluid_texture"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Ice"
+                                android:includeFontPadding="false"
+                                android:inputType="none"
+                                android:padding="@dimen/_10sdp"
+                                android:textColor="@color/colorText"
+                                app:fontFamily="@font/regular"
+                                app:hintTextColor="@color/colorText" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/Theme.WallpaperGallery.TextMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Scale"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/slider_scale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:valueFrom="0"
+                            android:valueTo="100"
+                            app:thumbColor="@color/colorIcon"
+                            app:trackColorActive="@color/colorAccent"
+                            app:trackColorInactive="@color/colorWhiteSubTransparent" />
+
+                        <RadioGroup
+                            android:id="@+id/fluid_texture_quality"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/fluid_normal_quality"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="Normal quality"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/fluid_high_quality"
+                                style="@style/Theme.WallpaperGallery.TextMedium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_32sdp"
+                                android:button="@drawable/ic_check_box"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="High quality"
+                                android:textColor="@color/colorText"
+                                android:textSize="@dimen/_12sdp"
+                                app:buttonTint="@color/ic_radio_item_tint"
+                                app:useMaterialThemeColors="false" />
+
+                        </RadioGroup>
+                    </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+                </com.fluidsimulation.widgets.SquircleCardView>
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+        </com.google.android.material.circularreveal.CircularRevealFrameLayout>
+    </androidx.core.widget.NestedScrollView>
+</com.google.android.material.circularreveal.CircularRevealLinearLayout>

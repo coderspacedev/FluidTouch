@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0F161B</color>
+    <color name="colorPrimaryDark">#0F161B</color>
+    <color name="colorPrimaryTransparent">#C00F161B</color>
+    <color name="colorAccent">#00D0FE</color>
+    <color name="colorAccentTrans">#CA00D0FE</color>
+    <color name="colorAccentTransExtra">#1B00D0FE</color>
+    <color name="colorAccentButtonText">#FFFFFF</color>
+
+    <color name="colorText">#FFFFFF</color>
+    <color name="colorTextInverse">#0F161B</color>
+    <color name="colorTabSelectedText">#00D0FE</color>
+    <color name="colorTabText">#698396</color>
+    <color name="colorSubText">#E3E3E3</color>
+    <color name="colorIcon">#FFFFFF</color>
+    <color name="colorIconOpacity">#E3E3E3</color>
+
+    <color name="colorBackground">#0F161B</color>
+    <color name="colorBackgroundTransparent">#C70F161B</color>
+    <color name="colorBackgroundMinTransparent">#8D0F161B</color>
+    <color name="colorBackgroundSubTransparent">#570F161B</color>
+    <color name="colorBackgroundExtraTransparent">#0F0F161B</color>
+
+    <color name="colorLightCard">#1D2A33</color>
+    <color name="colorLightCardTrans">#801D2A33</color>
+    <color name="colorYellow">#FFB800</color>
+    <color name="colorBase">#D3D3D3</color>
+    <color name="colorHighLight">#8FFFFFFF</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhiteTransparent">#D6FFFFFF</color>
+    <color name="colorWhiteSubTransparent">#57FFFFFF</color>
+    <color name="colorWhiteHint">#A3FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackTransparent">#D2000000</color>
+    <color name="colorBlackSubTransparent">#57000000</color>
+
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="colorRed">#F44336</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorBlue">#2196F3</color>
+    <color name="colorMatBlack">#1B1B1B</color>
+
+    <color name="line_color">#FF15FF00</color>
+    <color name="shadow_color">#FF000000</color>
+</resources>

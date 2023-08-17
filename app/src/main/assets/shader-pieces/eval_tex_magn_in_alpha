@@ -1,0 +1,6 @@
+
+vec3 evalFluidTex(vec4 tex)
+{
+	vec3 color = tex.rgb * (4.0 * tex.a + 1.0);
+	return color;
+}
