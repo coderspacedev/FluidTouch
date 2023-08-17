@@ -15,9 +15,9 @@ Please remember one thing in developing: *"Develop Innovative"*
 
 ### 📝 Authors
 
+> [@Ravina Sukhadiya](https://github.com/RavinaAB06) <br />
 > [![techhuntdevelopers](/art/ic_github.png)](https://github.com/techhuntdevelopers) <br />
 > [![palyo](/art/ic_github_palyo.png)](https://github.com/palyo) <br />
-> [@Ravina Sukhadiya](https://github.com/RavinaAB06) <br />
 > [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thoriya-prahalad-1b6a82137) <br />
 > [![Stack_Overflow](https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/9917404/thoriya-prahalad)
 
