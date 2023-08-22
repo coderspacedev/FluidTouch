@@ -6,6 +6,7 @@ import android.util.*
 import android.view.*
 
 class MyGLSurfaceView : GLSurfaceView {
+
     constructor(context: Context?, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context?) : super(context)
 

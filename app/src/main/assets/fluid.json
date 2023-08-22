@@ -1,0 +1,72 @@
+[
+  {
+    "fluid_id": "1",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren5.webp",
+    "fluid_title": "Gleeful Glimmers",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/GleefulGlimmers",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "2",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren1.webp",
+    "fluid_title": "Flashy Fluids",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/FlashyFluids",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "3",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren2.webp",
+    "fluid_title": "Blinding Bliss",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/BlindingBliss",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "4",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren3.webp",
+    "fluid_title": "Life of Lights",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/LifeofLights",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "5",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren4.webp",
+    "fluid_title": "Cosmic Charm",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/CosmicCharm",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "6",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren6.webp",
+    "fluid_title": "Strange Substance",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/StrangeSubstance",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "7",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren7.webp",
+    "fluid_title": "Jittery Jello",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/JitteryJello",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "8",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren8.webp",
+    "fluid_title": "Radioactive Rumble",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/RadioactiveRumble",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "9",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren9.webp",
+    "fluid_title": "Wizard Wand",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/WizardWand",
+    "is_premium": false
+  },
+  {
+    "fluid_id": "10",
+    "fluid_thumb": "/Ringer/FluidsWallpaper/thumb/fuild_sscren10.webp",
+    "fluid_title": "Dancing in the Dark",
+    "fluid_preset": "/Ringer/FluidsWallpaper/presets/DancingintheDark",
+    "is_premium": false
+  }
+]

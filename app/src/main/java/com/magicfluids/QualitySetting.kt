@@ -5,6 +5,8 @@ object QualitySetting {
     var EffectsSettings: ArrayList<String>? = null
     var PaintResSettings: ArrayList<String>? = null
     var SimResSettings: ArrayList<String>? = null
+
+    @JvmStatic
     fun init() {
         if (SimResSettings == null) {
             SimResSettings = ArrayList()
@@ -35,6 +37,7 @@ object QualitySetting {
     private val numberOfCores: Int
         private get() = Runtime.getRuntime().availableProcessors()
 
+    @JvmStatic
     fun setQualitySettingsFromPerf(settings: Settings, nativeInterface: NativeInterface?) {
         settings.QualityBaseValue = 1
         nativeInterface?.perfHeuristic()
@@ -51,4 +54,5 @@ object QualitySetting {
             settings.EffectsQuality = 2
         }
     }
+
 }

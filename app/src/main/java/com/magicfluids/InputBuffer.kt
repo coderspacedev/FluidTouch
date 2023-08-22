@@ -73,6 +73,7 @@ class InputBuffer {
     }
 
     companion object {
+        @JvmField
         var Instance = InputBuffer()
         const val MAX_EVENTS = 1024
     }

@@ -7,22 +7,79 @@
     android:background="@color/colorBlack"
     tools:context=".ui.activity.FluidActivity">
 
-    <com.magicfluids.MyGLSurfaceView
-        android:id="@+id/surface_view"
+    <com.google.android.material.circularreveal.CircularRevealFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:foreground="@color/colorBlackSubTransparent"
+            app:srcCompat="@drawable/ic_background_image" />
+
+        <com.magicfluids.MyGLSurfaceView
+            android:id="@+id/surface_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.circularreveal.CircularRevealFrameLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_settings"
-        style="@style/Theme.WallpaperGallery.MaterialButtonTransparent"
+        style="@style/Theme.WallpaperGallery.MaterialButton"
         android:layout_width="@dimen/_36sdp"
         android:layout_height="@dimen/_36sdp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        app:cornerRadius="@dimen/_21sdp"
+        android:layout_margin="@dimen/_12sdp"
+        app:backgroundTint="@color/colorLightCardTrans"
+        app:cornerRadius="@dimen/_12sdp"
         app:icon="@drawable/ic_icon_settings"
         app:iconGravity="textStart"
         app:iconPadding="@dimen/_0sdp"
-        app:iconSize="@dimen/_20sdp" />
+        app:iconSize="@dimen/_20sdp"
+        app:rippleColor="@color/colorLightCard" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_apply"
+        style="@style/Theme.WallpaperGallery.MaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:layout_toStartOf="@id/button_settings"
+        android:fontFamily="@font/regular"
+        android:text="Apply"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_14sdp"
+        app:backgroundTint="@color/colorLightCardTrans"
+        app:cornerRadius="@dimen/_12sdp"
+        app:rippleColor="@color/colorLightCard" />
+
+    <com.google.android.material.circularreveal.CircularRevealFrameLayout
+        android:id="@+id/layout_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_clear"
+            style="@style/Theme.WallpaperGallery.MaterialButtonTransparent"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            app:backgroundTint="@color/colorLightCardTrans"
+            app:cornerRadius="@dimen/_12sdp"
+            app:icon="@drawable/ic_icon_clear"
+            app:iconGravity="textStart"
+            app:iconPadding="@dimen/_0sdp"
+            app:iconSize="@dimen/_20sdp"
+            app:rippleColor="@color/colorLightCard" />
+    </com.google.android.material.circularreveal.CircularRevealFrameLayout>
 </com.google.android.material.circularreveal.CircularRevealRelativeLayout>

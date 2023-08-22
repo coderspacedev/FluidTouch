@@ -10,7 +10,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun initExtra() {
         Handler(mainLooper).postDelayed({
             go(FluidActivity::class.java, finish = true)
-        }, 1000)
+        }, 10)
     }
 
     override fun initListeners() {

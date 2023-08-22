@@ -1,24 +1,19 @@
 package com.fluidsimulation.helper
 
-import android.content.Context
-import android.content.SharedPreferences
+import android.content.*
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
-import android.graphics.Bitmap
+import android.graphics.*
 import android.graphics.Bitmap.CompressFormat
-import android.graphics.BitmapFactory
-import android.os.Environment
-import android.text.TextUtils
-import android.util.Log
-import androidx.preference.*
-import com.google.gson.Gson
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.util.Arrays
+import android.os.*
+import android.text.*
+import android.util.*
+import com.google.gson.*
+import java.io.*
+import java.util.*
 
 class TinyDB(private val context: Context, pref: String? = "DEFAULT") {
 
-    private val preferences: SharedPreferences = context.getSharedPreferences(pref,Context.MODE_PRIVATE)
+    private val preferences: SharedPreferences = context.getSharedPreferences(pref, Context.MODE_PRIVATE)
     private var DEFAULT_APP_IMAGEDATA_DIRECTORY: String? = null
 
     var savedImagePath = ""
@@ -51,7 +46,7 @@ class TinyDB(private val context: Context, pref: String? = "DEFAULT") {
     }
 
     private fun setupFullPath(imageName: String): String {
-        val mFolder = File(context?.getExternalFilesDir(null), DEFAULT_APP_IMAGEDATA_DIRECTORY)
+        val mFolder = File(context.getExternalFilesDir(null), DEFAULT_APP_IMAGEDATA_DIRECTORY)
         if (isExternalStorageReadable && isExternalStorageWritable && !mFolder.exists()) {
             if (!mFolder.mkdirs()) {
                 Log.e("ERROR", "Failed to setup folder")

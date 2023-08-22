@@ -1,15 +1,23 @@
 package com.fluidsimulation.ui.fragments
 
 import android.annotation.*
+import android.content.res.*
+import android.graphics.*
 import android.graphics.drawable.*
 import android.os.*
+import android.text.*
+import android.view.*
 import android.widget.*
 import androidx.core.content.*
+import androidx.core.graphics.*
+import androidx.core.widget.*
 import com.fluidsimulation.*
 import com.fluidsimulation.base.*
 import com.fluidsimulation.databinding.*
 import com.fluidsimulation.ext.*
+import com.fluidsimulation.listeners.*
 import com.fluidsimulation.ui.activity.*
+import com.google.android.material.bottomsheet.*
 
 class FragmentParticles : BaseFragment<FragmentParticlesBinding>(FragmentParticlesBinding::inflate) {
 
@@ -24,11 +32,127 @@ class FragmentParticles : BaseFragment<FragmentParticlesBinding>(FragmentParticl
     }
 
     override fun viewCreated() {
-        initAdapter()
+    }
+
+
+    private fun initDefault() {
+        activity?.apply context@{
+            binding?.apply {
+                val settings = (this@context as SettingsActivity).settings
+                isParticles.isChecked = settings?.ParticlesEnabled ?: false
+                shapeSelected = settings?.ParticlesShape ?: 0
+                modeSelected = settings?.ParticlesMode ?: 0
+                colorSelected = if (settings?.ParticlesUsePaintColor != false) 0 else 1
+                actionDots.isChecked = shapeSelected == 0
+                actionLines.isChecked = shapeSelected == 1
+                actionStars.isChecked = shapeSelected == 2
+                actionAddOnTouch.isChecked = modeSelected == 0
+                actionFillScreen.isChecked = modeSelected == 1
+                actionUsePaintColors.isChecked = colorSelected == 0
+                actionUseSeparateColor.isChecked = colorSelected == 1
+
+                sliderAmount.value = (settings?.particlesLifeTimeMsInt ?: 0).toFloat()
+                sliderLifetime.value = (settings?.particlesPerSecInt ?: 0).toFloat()
+                sliderSize.value = (settings?.particlesSizeInt ?: 0).toFloat()
+
+                settings?.ParticlesColor?.let { viewSelectedColor.setCardBackgroundColor(it) }
+            }
+        }
+    }
+
+    var changeHexTextByUser: Boolean = true
+
+    private fun chooseColor(color: Int, listener: ColorPickListener?) {
+        var textColor: Int = color
+        activity?.apply {
+            val dialog = BottomSheetDialog(
+                    this, R.style.Theme_WallpaperGallery_BottomSheetDialogTheme
+            )
+            val bind: LayoutDialogColorPickerBinding = LayoutDialogColorPickerBinding.inflate(layoutInflater)
+            bind.apply {
+                dialog.setContentView(root)
+                changeHexTextByUser = false
+                editHexCode.setText("%08X".format(textColor))
+                colorPreview.setCardBackgroundColor(textColor)
+                changeHexTextByUser = true
+                svView.onColorChanged = {
+                    textColor = it
+                    changeHexTextByUser = false
+                    editHexCode.setText("%08X".format(textColor))
+                    changeHexTextByUser = true
+                    seekAlpha.setMaxColor(textColor)
+                    colorPreview.setCardBackgroundColor(textColor)
+                }
+                hueView.onHueChanged = {
+                    textColor = hsvToColor(it, svView.saturation, svView.value)
+                    svView.setHue(it)
+                    seekAlpha.setMaxColor(textColor)
+                    changeHexTextByUser = false
+                    editHexCode.setText("%08X".format(textColor))
+                    changeHexTextByUser = true
+
+                    colorPreview.setCardBackgroundColor(textColor)
+                }
+                seekAlpha.setValue(textColor.alpha)
+                seekAlpha.onValueChanged = { value, fromUser ->
+                    if (fromUser) {
+                        seekAlpha.setValue(value)
+                        textColor = textColor.setAlpha(value)
+                        changeHexTextByUser = false
+                        editHexCode.setText("%08X".format(textColor))
+                        changeHexTextByUser = true
+
+                        colorPreview.setCardBackgroundColor(textColor)
+                    }
+                }
+
+                editHexCode.filters = arrayOf(HexadecimalFilter(), InputFilter.LengthFilter(8))
+                editHexCode.doOnTextChanged { text, start, before, count ->
+                    if (!changeHexTextByUser) {
+                        return@doOnTextChanged
+                    }
+
+                    try {
+                        textColor = Color.parseColor("#$text")
+                        seekAlpha.setValue(textColor.alpha)
+                        seekAlpha.setMaxColor(textColor)
+                        colorPreview.setCardBackgroundColor(textColor)
+                    } catch (e: IllegalArgumentException) {
+
+                    }
+                }
+                buttonTextColorUpdate.setOnClickListener {
+                    listener?.color(textColor)
+                    dialog.dismiss()
+                }
+                buttonTextColorCancel.setOnClickListener {
+                    dialog.dismiss()
+                }
+
+                (root.parent as View).backgroundTintMode = PorterDuff.Mode.CLEAR
+                (root.parent as View).backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+                (root.parent as View).setBackgroundColor(Color.TRANSPARENT)
+            }
+
+            val params = dialog.window?.attributes
+            params?.width = WindowManager.LayoutParams.MATCH_PARENT
+            params?.height = WindowManager.LayoutParams.WRAP_CONTENT
+            params?.gravity = Gravity.CENTER
+            dialog.window?.attributes = params
+            dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+
+            dialog.setCanceledOnTouchOutside(true)
+            dialog.window?.setDimAmount(.34f)
+            dialog.window?.navigationBarColor = ContextCompat.getColor(this, R.color.colorBlack)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            if (!isFinishing || !isDestroyed) {
+                dialog.show()
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun initAdapter() {
+    override fun initListeners() {
         activity?.apply context@{
             binding?.apply {
                 actionShape.setOnCheckedChangeListener { group, checkedId ->
@@ -56,10 +180,12 @@ class FragmentParticles : BaseFragment<FragmentParticlesBinding>(FragmentParticl
                             layoutColorPalette.beGone()
                             0
                         }
+
                         R.id.action_use_separate_color -> {
                             layoutColorPalette.beVisible()
                             1
                         }
+
                         else -> {
                             layoutColorPalette.beGone()
                             0
@@ -83,38 +209,18 @@ class FragmentParticles : BaseFragment<FragmentParticlesBinding>(FragmentParticl
                         (this@context as SettingsActivity).settings?.ParticlesEnabled = isChecked
                     }
                 }
+                buttonChooseBackground.setOnClickListener {
+                    chooseColor((this@context as SettingsActivity).settings?.ParticlesColor ?: Color.WHITE, object : ColorPickListener {
+                        override fun color(color: Int) {
+                            super.color(color)
+                            this@context.settings?.ParticlesColor = color
+                            viewSelectedColor.setCardBackgroundColor(color)
+                        }
+                    })
+                }
                 initDefault()
             }
         }
-    }
-
-    private fun initDefault() {
-        activity?.apply context@{
-            binding?.apply {
-                val settings = (this@context as SettingsActivity).settings
-                isParticles.isChecked = settings?.ParticlesEnabled ?: false
-                shapeSelected = settings?.ParticlesShape ?: 0
-                modeSelected = settings?.ParticlesMode ?: 0
-                colorSelected = if (settings?.ParticlesUsePaintColor != false) 0 else 1
-                actionDots.isChecked = shapeSelected == 0
-                actionLines.isChecked = shapeSelected == 1
-                actionStars.isChecked = shapeSelected == 2
-                actionAddOnTouch.isChecked = modeSelected == 0
-                actionFillScreen.isChecked = modeSelected == 1
-                actionUsePaintColors.isChecked = colorSelected == 0
-                actionUseSeparateColor.isChecked = colorSelected == 1
-
-                sliderAmount.value = (settings?.particlesLifeTimeMsInt ?: 0).toFloat()
-                sliderLifetime.value = (settings?.particlesPerSecInt ?: 0).toFloat()
-                sliderSize.value = (settings?.particlesSizeInt ?: 0).toFloat()
-
-                settings?.ParticlesColor?.let { viewSelectedColor.setCardBackgroundColor(it) }
-            }
-        }
-    }
-
-    override fun initListeners() {
-
     }
 
     override fun initView() {

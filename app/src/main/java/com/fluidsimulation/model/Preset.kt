@@ -4,6 +4,7 @@ import android.annotation.*
 import android.app.*
 import android.content.*
 import android.content.res.*
+import android.graphics.*
 import androidx.core.internal.view.*
 import androidx.core.view.*
 import com.fluidsimulation.ext.*
@@ -16,12 +17,12 @@ private const val TAG = "Preset"
 enum class Status {
     FREE, LOCKED, UN_LOCKABLE
 }
-
+@JvmField
 var presetList: MutableList<PresetNew>? = mutableListOf()
 
 data class PresetNew(var setting: Settings, var name: String, var status: Status, var isNew: Boolean)
 
-fun Activity.addPreset(name: String, status: Status, isNew: Boolean) {
+fun Context.addPreset(name: String, status: Status, isNew: Boolean) {
     val settings = Settings()
     val preset = PresetNew(settings, name, status, isNew)
     loadSettingsFromAssets(settings, "presets/" + preset.name.replace(" ", ""), isNew)
@@ -30,12 +31,12 @@ fun Activity.addPreset(name: String, status: Status, isNew: Boolean) {
 
 private var map: MutableMap<String, String> = mutableMapOf()
 
-fun Activity.initPresets() {
+fun Context.initPresets() {
+    addPreset("Gleeful Glimmers", Status.FREE, false)
     addPreset("Flashy Fluids", Status.FREE, false)
     addPreset("Blinding Bliss", Status.FREE, false)
     addPreset("Life of Lights", Status.FREE, false)
     addPreset("Cosmic Charm", Status.FREE, false)
-    addPreset("Gleeful Glimmers", Status.FREE, false)
     addPreset("Strange Substance", Status.FREE, false)
     addPreset("Jittery Jello", Status.FREE, false)
     addPreset("Radioactive Rumble", Status.FREE, false)
@@ -76,7 +77,7 @@ fun Activity.initPresets() {
     addPreset("Swirly Sparkles", Status.FREE, false)
 }
 
-fun Activity.readFromFileAssets(path: String): String {
+fun Context.readFromFileAssets(path: String): String {
     var ret = ""
     try {
         val inputStream: InputStream = assets.open(path)
@@ -97,8 +98,8 @@ fun Activity.readFromFileAssets(path: String): String {
     return ret
 }
 
-fun Activity.loadSettingsFromAssets(setting: Settings, assetsPath: String, isNew: Boolean) {
-    val split: List<String>? = readFromFileAssets(assetsPath).split("\\s+".toRegex()).filter { it.isNotEmpty() }
+fun Context.loadSettingsFromAssets(setting: Settings, assetsPath: String, isNew: Boolean) {
+    val split: List<String> = readFromFileAssets(assetsPath).split("\\s+".toRegex()).filter { it.isNotEmpty() }
     if ((split?.size ?: 0) % 2 != 0) {
         TAG.log("Settings file $assetsPath has incorrect format")
         return
@@ -129,24 +130,24 @@ fun Activity.loadSettingsFromAssets(setting: Settings, assetsPath: String, isNew
     setting.FluidLifeTime = getFloat(FLUID_LIFE_TIME, 5.0f)
     setting.ColorChange = getInt(COLOR_CHANGE, 0)
     setting.ColorOption = getInt(COLOR_OPTION, 1)
-    setting.Colors.set(0,getInt(COLOR0, SupportMenu.CATEGORY_MASK))
-    setting.Colors.set(1,getInt(COLOR1, -16711936))
-    setting.Colors.set(2,getInt(COLOR2, -16776961))
-    setting.Colors.set(3,getInt(COLOR3, -1))
-    setting.Colors.set(4,getInt(COLOR4, -1))
-    setting.Colors.set(5,getInt(COLOR5, -1))
-    setting.ColorsActive.set(0,getBoolean(COLOR_ACTIVE0, true))
-    setting.ColorsActive.set(1,getBoolean(COLOR_ACTIVE1, true))
-    setting.ColorsActive.set(2,getBoolean(COLOR_ACTIVE2, true))
-    setting.ColorsActive.set(3,getBoolean(COLOR_ACTIVE3, false))
-    setting.ColorsActive.set(4,getBoolean(COLOR_ACTIVE4, false))
-    setting.ColorsActive.set(5,getBoolean(COLOR_ACTIVE5, false))
-    setting.DColors.set(0,getInt(DCOLOR0, SupportMenu.CATEGORY_MASK))
-    setting.DColors.set(1,getInt(DCOLOR1, -16711936))
-    setting.DColors.set(2,getInt(DCOLOR2, -16711936))
-    setting.DColorsActive.set(0,getBoolean(DCOLOR_ACTIVE0, true))
-    setting.DColorsActive.set(1,getBoolean(DCOLOR_ACTIVE1, true))
-    setting.DColorsActive.set(2,getBoolean(DCOLOR_ACTIVE2, true))
+    setting.Colors.set(0, getInt(COLOR0, SupportMenu.CATEGORY_MASK))
+    setting.Colors.set(1, getInt(COLOR1, -16711936))
+    setting.Colors.set(2, getInt(COLOR2, -16776961))
+    setting.Colors.set(3, getInt(COLOR3, -1))
+    setting.Colors.set(4, getInt(COLOR4, -1))
+    setting.Colors.set(5, getInt(COLOR5, -1))
+    setting.ColorsActive.set(0, getBoolean(COLOR_ACTIVE0, true))
+    setting.ColorsActive.set(1, getBoolean(COLOR_ACTIVE1, true))
+    setting.ColorsActive.set(2, getBoolean(COLOR_ACTIVE2, true))
+    setting.ColorsActive.set(3, getBoolean(COLOR_ACTIVE3, false))
+    setting.ColorsActive.set(4, getBoolean(COLOR_ACTIVE4, false))
+    setting.ColorsActive.set(5, getBoolean(COLOR_ACTIVE5, false))
+    setting.DColors.set(0, getInt(DCOLOR0, SupportMenu.CATEGORY_MASK))
+    setting.DColors.set(1, getInt(DCOLOR1, -16711936))
+    setting.DColors.set(2, getInt(DCOLOR2, -16711936))
+    setting.DColorsActive.set(0, getBoolean(DCOLOR_ACTIVE0, true))
+    setting.DColorsActive.set(1, getBoolean(DCOLOR_ACTIVE1, true))
+    setting.DColorsActive.set(2, getBoolean(DCOLOR_ACTIVE2, true))
     setting.BackgroundColor = getInt(BACKGROUND_COLOR, -1)
     setting.OverbrightColors = getBoolean(OVERBRIGHT_COLORS, true)
     setting.InvertColors = getBoolean(INVERT_COLORS, false)
@@ -246,7 +247,7 @@ fun getBoolean(str: String?, z: Boolean): Boolean {
 }
 
 @SuppressLint("RestrictedApi")
-fun Activity.loadSettingsFromMap(setting: Settings, pref: String, isNew: Boolean) {
+fun Context.loadSettingsFromMap(setting: Settings, pref: String, isNew: Boolean) {
     val tinyDB = TinyDB(this, pref)
     setting.FluidType = tinyDB.getInt(FLUID_TYPE, 1)
     setting.Force = tinyDB.getFloat(FORCE, 3.0E-4f)
@@ -367,7 +368,7 @@ fun Activity.loadSettingsFromMap(setting: Settings, pref: String, isNew: Boolean
     setting.LightColor = setting.LightColor or ViewCompat.MEASURED_STATE_MASK
 }
 
-fun Activity.saveSessionSettings( settings: Settings, str: String) {
+fun Activity.saveSessionSettings(settings: Settings, str: String) {
     saveSettings(settings, str)
 }
 

@@ -23,50 +23,6 @@ class FragmentPaint : BaseFragment<FragmentPaintBinding>(FragmentPaintBinding::i
     }
 
     override fun viewCreated() {
-        initAdapter()
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private fun initAdapter() {
-        activity?.apply context@{
-            binding?.apply {
-
-                actionColors.setOnCheckedChangeListener { group, checkedId ->
-                    colorOptionSelected = when (checkedId) {
-                        R.id.action_random_colors -> 0
-                        R.id.action_trippy_color -> 3
-                        else -> 0
-                    }
-                    (this@context as SettingsActivity).settings?.ColorOption = colorOptionSelected
-                }
-                actionColorChange.setOnCheckedChangeListener { group, checkedId ->
-                    colorChangeSelected = when (checkedId) {
-                        R.id.action_with_new_touch -> 0
-                        R.id.action_every_moment -> 1
-                        else -> 0
-                    }
-                    (this@context as SettingsActivity).settings?.ColorChange = colorChangeSelected
-                }
-                sliderAmount.addOnChangeListener { slider, value, fromUser ->
-                    (this@context as SettingsActivity).settings?.forceInt = value.toInt()
-                }
-                sliderLifetime.addOnChangeListener { slider, value, fromUser ->
-                    (this@context as SettingsActivity).settings?.inputSizeInt = value.toInt()
-                }
-
-                isColorsSaturateWhite.setOnCheckedChangeListener { buttonView, isChecked ->
-                    if (buttonView.isPressed) {
-                        (this@context as SettingsActivity).settings?.OverbrightColors = isChecked
-                    }
-                }
-                isInvertColors.setOnCheckedChangeListener { buttonView, isChecked ->
-                    if (buttonView.isPressed) {
-                        (this@context as SettingsActivity).settings?.InvertColors = isChecked
-                    }
-                }
-                initDefault()
-            }
-        }
     }
 
     private fun initDefault() {
@@ -87,8 +43,47 @@ class FragmentPaint : BaseFragment<FragmentPaintBinding>(FragmentPaintBinding::i
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun initListeners() {
+        activity?.apply context@{
+            binding?.apply {
 
+                actionColors.setOnCheckedChangeListener { group, checkedId ->
+                    colorOptionSelected = when (checkedId) {
+                        R.id.action_random_colors -> 0
+                        R.id.action_trippy_color -> 3
+                        else -> 0
+                    }
+                    (this@context as SettingsActivity).settings?.ColorOption = colorOptionSelected
+                }
+                actionColorChange.setOnCheckedChangeListener { group, checkedId ->
+                    colorChangeSelected = when (checkedId) {
+                        R.id.action_with_new_touch -> 0
+                        R.id.action_every_moment -> 1
+                        else -> 0
+                    }
+                    (this@context as SettingsActivity).settings?.ColorChange = colorChangeSelected
+                }
+                sliderAmount.addOnChangeListener { slider, value, fromUser ->
+                    (this@context as SettingsActivity).settings?.fluidAmountInt = value.toInt()
+                }
+                sliderLifetime.addOnChangeListener { slider, value, fromUser ->
+                    (this@context as SettingsActivity).settings?.inputSizeInt = value.toInt()
+                }
+
+                isColorsSaturateWhite.setOnCheckedChangeListener { buttonView, isChecked ->
+                    if (buttonView.isPressed) {
+                        (this@context as SettingsActivity).settings?.OverbrightColors = isChecked
+                    }
+                }
+                isInvertColors.setOnCheckedChangeListener { buttonView, isChecked ->
+                    if (buttonView.isPressed) {
+                        (this@context as SettingsActivity).settings?.InvertColors = isChecked
+                    }
+                }
+                initDefault()
+            }
+        }
     }
 
     override fun initView() {

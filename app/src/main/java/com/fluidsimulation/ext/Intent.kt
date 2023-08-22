@@ -1,8 +1,8 @@
 package com.fluidsimulation.ext
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Parcelable
+import android.app.*
+import android.content.*
+import android.os.*
 
 fun Activity.go(destination: Class<*>, extras: List<Pair<String, Any?>>? = null, finish: Boolean = false): Intent {
     return Intent(this, destination).apply {

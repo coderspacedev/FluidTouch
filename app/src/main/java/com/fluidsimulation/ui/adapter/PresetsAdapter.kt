@@ -38,7 +38,7 @@ class PresetsAdapter(val context: Activity, val listener: CommonListener?) : Rec
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
                         .into(imageMedia)
-                if (TinyDB(this@context).getInt(SELECTED_PRESET, 0) == position){
+                if (TinyDB(this@context).getInt(SELECTED_PRESET, 0) == position) {
                     card.strokeWidth = resources.getDimension(com.intuit.sdp.R.dimen._1sdp).toInt()
                 } else {
                     card.strokeWidth = resources.getDimension(R.dimen._0sdp).toInt()

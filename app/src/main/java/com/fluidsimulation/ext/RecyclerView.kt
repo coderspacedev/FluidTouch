@@ -1,9 +1,9 @@
 package com.fluidsimulation.ext
 
-import android.annotation.SuppressLint
-import android.view.animation.OvershootInterpolator
-import androidx.recyclerview.widget.RecyclerView
-import jp.wasabeef.recyclerview.animators.FadeInUpAnimator
+import android.annotation.*
+import android.view.animation.*
+import androidx.recyclerview.widget.*
+import jp.wasabeef.recyclerview.animators.*
 
 @SuppressLint("ClickableViewAccessibility")
 fun RecyclerView.applyDefault() {

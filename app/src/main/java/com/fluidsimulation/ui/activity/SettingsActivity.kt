@@ -1,6 +1,9 @@
 package com.fluidsimulation.ui.activity
 
+import android.graphics.Color
 import androidx.activity.*
+import androidx.core.content.ContextCompat
+import com.fluidsimulation.R
 import com.fluidsimulation.base.*
 import com.fluidsimulation.databinding.*
 import com.fluidsimulation.ext.*
@@ -45,15 +48,14 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(ActivitySettingsB
         onBackPressedDispatcher.addCallback(this@SettingsActivity, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 settings?.let {
-                    Settings.LWPCurrent?.setEverythingFrom(it)
+//                    it.ColorOption = 2
+//                    it.BackgroundColor = ContextCompat.getColor(this@SettingsActivity,R.color.colorTransparent)
                     Settings.Current?.setEverythingFrom(it)
                 }
 
-                settings?.let { saveSessionSettings(it, SETTINGS_NAME) }
+                settings?.let { saveSessionSettings(it, DEFAULT_SETTING) }
                 Settings.Current?.ReloadRequired = true
                 Settings.Current?.ReloadRequiredPreview = true
-                Settings.LWPCurrent?.ReloadRequired = true
-                Settings.LWPCurrent?.ReloadRequiredPreview = true
                 finish()
             }
         })

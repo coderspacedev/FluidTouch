@@ -1,19 +1,12 @@
 package com.fluidsimulation.base
 
-import android.os.Build
-import android.os.Bundle
-import android.util.DisplayMetrics
-import android.view.LayoutInflater
-import android.view.View
-import android.view.Window
-import android.view.WindowInsets
-import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
-import androidx.viewbinding.ViewBinding
+import android.os.*
+import android.util.*
+import android.view.*
+import androidx.appcompat.app.*
+import androidx.core.content.*
+import androidx.core.view.*
+import androidx.viewbinding.*
 import com.fluidsimulation.ext.*
 
 abstract class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater) -> B,

@@ -219,7 +219,7 @@ class Settings {
         iArr2[0] = -48060
         iArr2[1] = -12255420
         iArr2[2] = -12303105
-        BackgroundColor = R.color.colorBlack
+        BackgroundColor = R.color.colorWhite
         OverbrightColors = true
         InvertColors = false
         ColorChange = 0
@@ -535,7 +535,7 @@ class Settings {
         const val PARTICLE_SHAPE_STARS = 2
         const val SOURCE_SPEED_MAX = 0.0015f
         const val SOURCE_SPEED_MIN = 1.5E-4f
-         var Current: Settings? = null
-         var LWPCurrent: Settings? = null
+        @JvmField
+        var Current: Settings? = null
     }
 }

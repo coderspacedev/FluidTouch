@@ -22,11 +22,26 @@ class FragmentAnimation : BaseFragment<FragmentAnimationBinding>(FragmentAnimati
     }
 
     override fun viewCreated() {
-        initAdapter()
+    }
+
+    private fun initDefault() {
+        activity?.apply context@{
+            binding?.apply {
+                val settings = (this@context as SettingsActivity).settings
+                fluidSelected = settings?.FluidType ?: 0
+                fluidTypeSmoke.isChecked = fluidSelected == 0
+                fluidTypeWater.isChecked = fluidSelected == 1
+                fluidTypeJello.isChecked = fluidSelected == 2
+                sliderLifeline.value = (settings?.velLifetimeInt ?: 0).toFloat()
+                sliderSwirliness.value = (settings?.swirlinessInt ?: 0).toFloat()
+                sliderSourceSpeed.value = (settings?.sourceSpeedInt ?: 0).toFloat()
+                isSourceEnableOnResume.isChecked = settings?.AutoOnResume ?: false
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun initAdapter() {
+    override fun initListeners() {
         activity?.apply context@{
             binding?.apply {
                 editPaintQuality.apply {
@@ -109,8 +124,7 @@ class FragmentAnimation : BaseFragment<FragmentAnimationBinding>(FragmentAnimati
                     val sourceFingerAdapter = ArrayAdapter(this@context, R.layout.layout_row_item_option, items)
                     threshold = 0
                     setAdapter(sourceFingerAdapter)
-                    val settings = (this@context as SettingsActivity).settings
-                    val numSources = settings?.NumSources ?: 0
+                    val numSources = (this@context as SettingsActivity).settings?.NumSources ?: 0
                     if (numSources >= 0 && numSources < adapter.count) {
                         setText(items[numSources], false)
                     }
@@ -133,26 +147,6 @@ class FragmentAnimation : BaseFragment<FragmentAnimationBinding>(FragmentAnimati
                 initDefault()
             }
         }
-    }
-
-    private fun initDefault() {
-        activity?.apply context@{
-            binding?.apply {
-                val settings = (this@context as SettingsActivity).settings
-                fluidSelected = settings?.FluidType ?: 0
-                fluidTypeSmoke.isChecked = fluidSelected == 0
-                fluidTypeWater.isChecked = fluidSelected == 1
-                fluidTypeJello.isChecked = fluidSelected == 2
-                sliderLifeline.value = (settings?.velLifetimeInt ?: 0).toFloat()
-                sliderSwirliness.value = (settings?.swirlinessInt ?: 0).toFloat()
-                sliderSourceSpeed.value = (settings?.sourceSpeedInt ?: 0).toFloat()
-                isSourceEnableOnResume.isChecked = settings?.AutoOnResume ?: false
-            }
-        }
-    }
-
-    override fun initListeners() {
-
     }
 
     override fun initView() {

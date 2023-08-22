@@ -23,11 +23,41 @@ class FragmentInput : BaseFragment<FragmentInputBinding>(FragmentInputBinding::i
     }
 
     override fun viewCreated() {
-        initAdapter()
+
+    }
+
+    private fun initDefault() {
+        activity?.apply context@{
+            binding?.apply {
+                tabSwipe.isSelected = true
+                tabTap.isSelected = false
+                layoutTouch.beGone()
+                layoutSwipe.beVisible()
+                val settings = (this@context as SettingsActivity).settings
+                swipeActionSelected = settings?.InputSwipeMode ?: 0
+                actionStream.isChecked = swipeActionSelected == 0
+                actionInverseStream.isChecked = swipeActionSelected == 1
+                sliderSwipeForce.value = (settings?.forceInt ?: 0).toFloat()
+                sliderSwipeSize.value = (settings?.inputSizeInt ?: 0).toFloat()
+                isConstantForce.isChecked = settings?.InputSwipeConstant ?: false
+
+                tapActionSelected = settings?.InputTouchMode ?: 0
+                actionStreamSource.isChecked = tapActionSelected == 0
+                actionVortex.isChecked = tapActionSelected == 1
+                action2WayBlower.isChecked = tapActionSelected == 2
+                actionRotatingBlower.isChecked = tapActionSelected == 4
+                actionSource.isChecked = tapActionSelected == 5
+                actionSink.isChecked = tapActionSelected == 6
+                actionSourceSink.isChecked = tapActionSelected == 7
+                actionNone.isChecked = tapActionSelected == 8
+                sliderTapForce.value = (settings?.touchInputForceInt ?: 0).toFloat()
+                 sliderTapSize.value = (settings?.touchInputSizeInt ?: 0).toFloat()
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun initAdapter() {
+    override fun initListeners() {
         activity?.apply context@{
             binding?.apply {
                 tabSwipe.setOnClickListener {
@@ -83,40 +113,6 @@ class FragmentInput : BaseFragment<FragmentInputBinding>(FragmentInputBinding::i
                 initDefault()
             }
         }
-    }
-
-    private fun initDefault() {
-        activity?.apply context@{
-            binding?.apply {
-                tabSwipe.isSelected = true
-                tabTap.isSelected = false
-                layoutTouch.beGone()
-                layoutSwipe.beVisible()
-                val settings = (this@context as SettingsActivity).settings
-                swipeActionSelected = settings?.InputSwipeMode ?: 0
-                actionStream.isChecked = swipeActionSelected == 0
-                actionInverseStream.isChecked = swipeActionSelected == 1
-                sliderSwipeForce.value = (settings?.forceInt ?: 0).toFloat()
-                sliderSwipeSize.value = (settings?.inputSizeInt ?: 0).toFloat()
-                isConstantForce.isChecked = settings?.InputSwipeConstant ?: false
-
-                tapActionSelected = settings?.InputTouchMode ?: 0
-                actionStreamSource.isChecked = tapActionSelected == 0
-                actionVortex.isChecked = tapActionSelected == 1
-                action2WayBlower.isChecked = tapActionSelected == 2
-                actionRotatingBlower.isChecked = tapActionSelected == 4
-                actionSource.isChecked = tapActionSelected == 5
-                actionSink.isChecked = tapActionSelected == 6
-                actionSourceSink.isChecked = tapActionSelected == 7
-                actionNone.isChecked = tapActionSelected == 8
-                sliderTapForce.value = (settings?.touchInputForceInt ?: 0).toFloat()
-                sliderTapSize.value = (settings?.touchInputSizeInt ?: 0).toFloat()
-            }
-        }
-    }
-
-    override fun initListeners() {
-
     }
 
     override fun initView() {

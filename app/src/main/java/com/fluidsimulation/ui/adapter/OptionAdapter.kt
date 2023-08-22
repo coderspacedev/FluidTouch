@@ -16,7 +16,7 @@ class OptionAdapter(val context: Activity, val listener: CommonListener?) : Recy
 
     fun addAll(options: MutableList<String>) {
         options.addAll(options)
-        notifyItemRangeChanged(0, options.size ?: 0)
+        notifyItemRangeChanged(0, options.size)
     }
 
     override fun getItemCount(): Int {

@@ -1,10 +1,10 @@
 package com.fluidsimulation.ext
 
-import android.R
-import android.app.Activity
-import android.content.Context
-import android.content.res.Resources
-import android.util.TypedValue
+import android.*
+import android.app.*
+import android.content.*
+import android.content.res.*
+import android.util.*
 
 fun Activity.getActionBarHeight(): Int {
     val tv = TypedValue()

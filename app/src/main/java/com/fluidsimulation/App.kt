@@ -1,10 +1,15 @@
 package com.fluidsimulation
 
-import android.app.Application
+import android.app.*
 
-class App:Application() {
+class App : Application() {
+
+   companion object{
+       var app: App? = null
+   }
 
     override fun onCreate() {
         super.onCreate()
+        app = this
     }
 }

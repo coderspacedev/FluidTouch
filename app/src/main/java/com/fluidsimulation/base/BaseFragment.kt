@@ -1,14 +1,9 @@
 package com.fluidsimulation.base
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.ActivityResultRegistry
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.viewbinding.ViewBinding
+import android.os.*
+import android.view.*
+import androidx.fragment.app.*
+import androidx.viewbinding.*
 
 abstract class BaseFragment<B : ViewBinding>(val bindingFactory: (LayoutInflater) -> B) :
         Fragment() {

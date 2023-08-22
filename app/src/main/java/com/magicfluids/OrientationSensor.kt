@@ -20,11 +20,10 @@ class OrientationSensor(context: Context, application: Application) : SensorEven
         private set
     private val sensorManager: SensorManager
 
-    // android.hardware.SensorEventListener
     override fun onAccuracyChanged(sensor: Sensor, i: Int) {}
 
     init {
-        val sensorManager = context.getSystemService("sensor") as SensorManager
+        val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         this.sensorManager = sensorManager
         accelerometer = sensorManager.getDefaultSensor(1)
         this.application = application
@@ -52,6 +51,6 @@ class OrientationSensor(context: Context, application: Application) : SensorEven
         acceleration = fArr
         AccelerationX = fArr[1]
         AccelerationY = fArr[0]
-        Orientation = (application.getSystemService("window") as WindowManager).defaultDisplay.rotation
+        Orientation = (application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation
     }
 }
