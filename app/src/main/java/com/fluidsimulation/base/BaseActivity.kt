@@ -33,9 +33,9 @@ abstract class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater
         binding = bindingFactory(layoutInflater)
         setContentView(binding?.root)
         initPadding()
-        initView()
-        initExtra()
-        initListeners()
+        binding?.initView()
+        binding?.initExtra()
+        binding?.initListeners()
         initSize()
     }
 
@@ -46,9 +46,9 @@ abstract class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater
         screenHeight = displayMetrics.heightPixels
     }
 
-    abstract fun initExtra()
-    abstract fun initListeners()
-    abstract fun initView()
+    abstract fun B.initExtra()
+    abstract fun B.initListeners()
+    abstract fun B.initView()
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)

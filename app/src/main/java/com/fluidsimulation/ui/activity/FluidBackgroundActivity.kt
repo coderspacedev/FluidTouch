@@ -6,24 +6,18 @@ import com.fluidsimulation.databinding.*
 
 class FluidBackgroundActivity : BaseActivity<ActivityFluidBackgroundBinding>(ActivityFluidBackgroundBinding::inflate) {
 
-    override fun initExtra() {
+    override fun ActivityFluidBackgroundBinding.initExtra() {
         initWebView()
     }
 
-    private fun initWebView() {
-        binding?.apply {
-            val webSettings = webView.settings
-            webSettings.javaScriptEnabled = true
-            webView.loadUrl("file:///android_asset/web/index.html")
-            webView.webViewClient = WebViewClient()
-        }
+    private fun ActivityFluidBackgroundBinding.initWebView() {
+        val webSettings = webView.settings
+        webSettings.javaScriptEnabled = true
+        webView.loadUrl("file:///android_asset/web/index.html")
+        webView.webViewClient = WebViewClient()
     }
 
-    override fun initListeners() {
+    override fun ActivityFluidBackgroundBinding.initListeners() {}
 
-    }
-
-    override fun initView() {
-
-    }
+    override fun ActivityFluidBackgroundBinding.initView() {}
 }

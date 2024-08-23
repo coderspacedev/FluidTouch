@@ -20,7 +20,7 @@ class FluidActivity : BaseActivity<ActivityFluidBinding>(ActivityFluidBinding::i
     private val TAG = "FluidActivity"
     private var nativeInterface: NativeInterface? = null
 
-    override fun initExtra() {
+    override fun ActivityFluidBinding.initExtra() {
         initNative()
         initGL()
     }
@@ -33,38 +33,35 @@ class FluidActivity : BaseActivity<ActivityFluidBinding>(ActivityFluidBinding::i
         nativeInterface?.setAssetManager(assets)
     }
 
-    private fun initGL() {
-        binding?.apply {
-            orientationSensor = OrientationSensor(this@FluidActivity, application)
-            surfaceView.setEGLContextClientVersion(3)
-            surfaceView.setEGLConfigChooser(MultiSampleConfigChooser())
+    private fun ActivityFluidBinding.initGL() {
+        orientationSensor = OrientationSensor(this@FluidActivity, application)
+        surfaceView.setEGLContextClientVersion(3)
+        surfaceView.setEGLConfigChooser(MultiSampleConfigChooser())
 
-            if (Settings.Current == null) {
-                Settings.Current = Settings()
-            }
-            surfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0)
-            renderer = GLES20Renderer(this@FluidActivity, nativeInterface, orientationSensor, Settings.Current)
-//            surfaceView.setZOrderOnTop(true)
-            surfaceView.holder.setFormat(PixelFormat.TRANSLUCENT)
-            surfaceView.setRenderer(renderer)
+        if (Settings.Current == null) {
+            Settings.Current = Settings()
+        }
+        surfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0)
+        renderer = GLES20Renderer(this@FluidActivity, nativeInterface, orientationSensor, Settings.Current)
+        surfaceView.holder.setFormat(PixelFormat.TRANSLUCENT)
+        surfaceView.setRenderer(renderer)
 
-            renderer?.setInitialScreenSize(300, 200)
-            nativeInterface?.onCreate(300, 200, false)
-            runBlocking {
-                initPresets()
-                QualitySetting.init()
-                Settings.Current?.let { loadSettingsFromMap(it, DEFAULT_SETTING, true) }
-                if (getNumAppRuns(this@FluidActivity) == 0) {
-                    presetList?.get(TinyDB(this@FluidActivity).getInt(SELECTED_PRESET, 0))?.setting?.let {
-                        Settings.Current?.setFromInternalPreset(it)
-                        QualitySetting.setQualitySettingsFromPerf(it, nativeInterface)
-                        Settings.Current?.GPUQuality = if ((it.QualityBaseValue ?: 0) < 320) 1 else 2
-                    }
-                } else {
-                    Settings.Current?.ReloadRequired = true
+        renderer?.setInitialScreenSize(300, 200)
+        nativeInterface?.onCreate(300, 200, false)
+        runBlocking {
+            initPresets()
+            QualitySetting.init()
+            Settings.Current?.let { loadSettingsFromMap(it, DEFAULT_SETTING, true) }
+            if (getNumAppRuns(this@FluidActivity) == 0) {
+                presetList?.get(TinyDB(this@FluidActivity).getInt(SELECTED_PRESET, 0))?.setting?.let {
+                    Settings.Current?.setFromInternalPreset(it)
+                    QualitySetting.setQualitySettingsFromPerf(it, nativeInterface)
+                    Settings.Current?.GPUQuality = if ((it.QualityBaseValue ?: 0) < 320) 1 else 2
                 }
-                newAppRun(this@FluidActivity)
+            } else {
+                Settings.Current?.ReloadRequired = true
             }
+            newAppRun(this@FluidActivity)
         }
     }
 
@@ -87,8 +84,8 @@ class FluidActivity : BaseActivity<ActivityFluidBinding>(ActivityFluidBinding::i
     override fun onPause() {
         super.onPause()
         Settings.Current?.let { saveSessionSettings(it, SETTINGS_NAME) }
-        nativeInterface?.onPause()
-        binding?.surfaceView?.onPause()
+        //nativeInterface?.onPause()
+        //binding?.surfaceView?.onPause()
         orientationSensor?.unregister()
     }
 
@@ -105,32 +102,25 @@ class FluidActivity : BaseActivity<ActivityFluidBinding>(ActivityFluidBinding::i
         Settings.Current?.let { nativeInterface?.updateSettings(it) }
     }
 
-    fun updateAdvGPUFeaturesAvailable() {
-    }
-
-    override fun initListeners() {
-        binding?.apply {
-            buttonSettings.setOnClickListener {
-                go(SettingsActivity::class.java)
-            }
-            buttonClear.setOnClickListener {
-                nativeInterface?.clearScreen()
-            }
-            buttonApply.setOnClickListener {
-                Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER).apply {
-                    putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT, ComponentName(this@FluidActivity, NewWallpaperService::class.java))
-                    startActivity(this)
-                }
+    override fun ActivityFluidBinding.initListeners() {
+        buttonSettings.setOnClickListener {
+            go(SettingsActivity::class.java)
+        }
+        buttonClear.setOnClickListener {
+            nativeInterface?.clearScreen()
+        }
+        buttonApply.setOnClickListener {
+            Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER).apply {
+                putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT, ComponentName(this@FluidActivity, NewWallpaperService::class.java))
+                startActivity(this)
             }
         }
     }
 
-    override fun initView() {
-        binding?.apply {
-            layoutTopBar.setOnApplyWindowInsetsListener { v: View, insets: WindowInsets ->
-                v.setPadding(0, getStatusBarHeight(), 0, 0)
-                insets
-            }
+    override fun ActivityFluidBinding.initView() {
+        layoutTopBar.setOnApplyWindowInsetsListener { v: View, insets: WindowInsets ->
+            v.setPadding(0, getStatusBarHeight(), 0, 0)
+            insets
         }
     }
 

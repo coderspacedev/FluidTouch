@@ -27,13 +27,13 @@ abstract class BaseFragment<B : ViewBinding>(val bindingFactory: (LayoutInflater
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewCreated()
-        initListeners()
-        initView()
+        binding?.viewCreated()
+        binding?.initListeners()
+        binding?.initView()
     }
 
     abstract fun create()
-    abstract fun initView()
-    abstract fun initListeners()
-    abstract fun viewCreated()
+    abstract fun B.initView()
+    abstract fun B.initListeners()
+    abstract fun B.viewCreated()
 }

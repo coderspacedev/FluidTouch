@@ -1,14 +1,10 @@
 package com.fluidsimulation.ui.fragments
 
 import android.annotation.*
-import android.graphics.drawable.*
 import android.os.*
-import android.widget.*
-import androidx.core.content.*
 import com.fluidsimulation.*
 import com.fluidsimulation.base.*
 import com.fluidsimulation.databinding.*
-import com.fluidsimulation.ext.*
 import com.fluidsimulation.ui.activity.*
 
 class FragmentPaint : BaseFragment<FragmentPaintBinding>(FragmentPaintBinding::inflate) {
@@ -16,18 +12,12 @@ class FragmentPaint : BaseFragment<FragmentPaintBinding>(FragmentPaintBinding::i
     private var colorOptionSelected: Int = 0
     private var colorChangeSelected: Int = 1
 
-    override fun create() {
-        arguments?.let {
+    override fun create() {}
 
-        }
-    }
+    override fun FragmentPaintBinding.viewCreated() {}
 
-    override fun viewCreated() {
-    }
-
-    private fun initDefault() {
+    private fun FragmentPaintBinding.initDefault() {
         activity?.apply context@{
-            binding?.apply {
                 val settings = (this@context as SettingsActivity).settings
                 colorOptionSelected = settings?.ColorOption ?: 0
                 colorChangeSelected = settings?.ColorChange ?: 0
@@ -39,15 +29,12 @@ class FragmentPaint : BaseFragment<FragmentPaintBinding>(FragmentPaintBinding::i
                 sliderLifetime.value = (settings?.fluidLifeTimeInt ?: 0).toFloat()
                 isColorsSaturateWhite.isChecked = settings?.OverbrightColors ?: false
                 isInvertColors.isChecked = settings?.InvertColors ?: false
-            }
         }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun initListeners() {
+    override fun FragmentPaintBinding.initListeners() {
         activity?.apply context@{
-            binding?.apply {
-
                 actionColors.setOnCheckedChangeListener { group, checkedId ->
                     colorOptionSelected = when (checkedId) {
                         R.id.action_random_colors -> 0
@@ -83,21 +70,12 @@ class FragmentPaint : BaseFragment<FragmentPaintBinding>(FragmentPaintBinding::i
                 }
                 initDefault()
             }
-        }
     }
 
-    override fun initView() {
-
-    }
+    override fun FragmentPaintBinding.initView() { }
 
     companion object {
-
         private const val TAG = "FragmentPaint"
-        fun newInstance() =
-                FragmentPaint().apply {
-                    arguments = Bundle().apply {
-
-                    }
-                }
+        fun newInstance() = FragmentPaint()
     }
 }

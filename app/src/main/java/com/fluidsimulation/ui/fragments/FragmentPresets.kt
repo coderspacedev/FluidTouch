@@ -1,6 +1,5 @@
 package com.fluidsimulation.ui.fragments
 
-import android.os.*
 import androidx.recyclerview.widget.*
 import com.fluidsimulation.base.*
 import com.fluidsimulation.databinding.*
@@ -15,20 +14,15 @@ class FragmentPresets : BaseFragment<FragmentPresetsBinding>(FragmentPresetsBind
 
     private var presetAdapter: PresetsAdapter? = null
 
-    override fun create() {
-        arguments?.let {
+    override fun create() {}
 
-        }
-    }
-
-    override fun viewCreated() {
+    override fun FragmentPresetsBinding.viewCreated() {
         initAdapter()
         initData()
     }
 
-    private fun initAdapter() {
+    private fun FragmentPresetsBinding.initAdapter() {
         activity?.apply context@{
-            binding?.apply {
                 recyclerView.apply {
                     applyDefault()
                     val gridLayoutManager = GridLayoutManager(this@context, 2, RecyclerView.VERTICAL, false)
@@ -44,7 +38,6 @@ class FragmentPresets : BaseFragment<FragmentPresetsBinding>(FragmentPresetsBind
                     })
                     adapter = presetAdapter
                 }
-            }
         }
     }
 
@@ -98,22 +91,13 @@ class FragmentPresets : BaseFragment<FragmentPresetsBinding>(FragmentPresetsBind
         presetAdapter?.addAll(presets)
     }
 
-    override fun initListeners() {
+    override fun FragmentPresetsBinding.initListeners() {}
 
-    }
-
-    override fun initView() {
-
-    }
+    override fun FragmentPresetsBinding.initView() {}
 
     companion object {
 
         private const val TAG = "FragmentPresets"
-        fun newInstance() =
-                FragmentPresets().apply {
-                    arguments = Bundle().apply {
-
-                    }
-                }
+        fun newInstance() = FragmentPresets()
     }
 }

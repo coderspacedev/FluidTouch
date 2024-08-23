@@ -1,31 +1,32 @@
-![Logo](/art/ic_logo.png) <a href="https://play.google.com/store/apps/details?id=com.fluidsimulation"><img alt="Get it on Google Play" align="right" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" height=56px /></a>
+# **Fluid Touch**
 
-# Fluid Simulation
+### **Features**
 
-### Features
+> *1. Fluid touch simulation,*  
+> *2. 40+ fluid presets,*  
+> *3. Adjust animation for fluid,*  
+> *4. Manage actions on swipe finger,*  
+> *5. Add extra particles on touch,*  
+> *6. Adjust swipe behaviour on screen.*
 
-> 1. Fluid Effects
+### 📝 **About Me**
 
-> package: *com.fluidsimulation*
+**🚀 Develop Innovation**  
+**💼 Android (Java/Kotlin) & Flutter Developer**  
+**✨ Made with ❤️ in India**
 
-### 🚀 About Me
+### 📫 **How to Reach Me**
 
-I'm a Android Developer and Flutter beginner <br />
-Please remember one thing in developing: *"Develop Innovative"*
+- **Email:** thoriyaprahalad@gmail.com
+- **StackOverflow:** [Thoriya Prahalad](https://stackoverflow.com/users/9917404/thoriya-prahalad)
+- **LinkedIn:** [Thoriya Prahalad](www.linkedin.com/in/thoriya-prahalad)
+- **GitHub:** [techhuntdevelopers](https://github.com/techhuntdevelopers)
 
-### 📝 Authors
-
-> [@Ravina Sukhadiya](https://github.com/RavinaAB06) <br />
-> [![techhuntdevelopers](/art/ic_github.png)](https://github.com/techhuntdevelopers) <br />
-> [![palyo](/art/ic_github_palyo.png)](https://github.com/palyo) <br />
-> [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/thoriya-prahalad-1b6a82137) <br />
-> [![Stack_Overflow](https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/9917404/thoriya-prahalad)
-
-### ⚠️ License
+### ⚠️ **License**
 
 MIT License
 
-Copyright (c) 2022 Aani brothers infotech
+Copyright (c) 2024 **Coder Space**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +45,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-## Support
-
-For support, email thoriyaprahalad@gmail.com

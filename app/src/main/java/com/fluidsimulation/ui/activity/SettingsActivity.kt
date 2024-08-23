@@ -1,9 +1,6 @@
 package com.fluidsimulation.ui.activity
 
-import android.graphics.Color
 import androidx.activity.*
-import androidx.core.content.ContextCompat
-import com.fluidsimulation.R
 import com.fluidsimulation.base.*
 import com.fluidsimulation.databinding.*
 import com.fluidsimulation.ext.*
@@ -16,40 +13,36 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>(ActivitySettingsB
 
     private val tabTitles get() = mutableListOf("PRESETS", "ANIMATION", "INPUT", "PAINT", "PARTICLES", "EFFECT")
     var settings: Settings? = null
-    override fun initExtra() {
+
+    override fun ActivitySettingsBinding.initExtra() {
         settings = Settings.Current
-        initPager()
     }
 
-    private fun initPager() {
-        binding?.apply {
-            val pagerAdapter = SettingPagerAdapter(supportFragmentManager, lifecycle)
-            viewPager.adapter = pagerAdapter
-            viewPager.offscreenPageLimit = 6
-            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                tab.text = tabTitles[position]
-            }.attach()
-        }
+    override fun onResume() {
+        super.onResume()
+        binding?.initPager()
     }
 
-    override fun initListeners() {
-
+    private fun ActivitySettingsBinding.initPager() {
+        val pagerAdapter = SettingPagerAdapter(supportFragmentManager, lifecycle)
+        viewPager.adapter = pagerAdapter
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
     }
 
-    override fun initView() {
-        binding?.apply {
-            toolbar.title = "Settings"
-            setSupportActionBar(toolbar)
-            toolbar.setNavigationOnClickListener {
-                onBackPressedDispatcher.onBackPressed()
-            }
+    override fun ActivitySettingsBinding.initListeners() {}
+
+    override fun ActivitySettingsBinding.initView() {
+        toolbar.title = "Settings"
+        setSupportActionBar(toolbar)
+        toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
         }
 
         onBackPressedDispatcher.addCallback(this@SettingsActivity, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 settings?.let {
-//                    it.ColorOption = 2
-//                    it.BackgroundColor = ContextCompat.getColor(this@SettingsActivity,R.color.colorTransparent)
                     Settings.Current?.setEverythingFrom(it)
                 }
 

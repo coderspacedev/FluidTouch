@@ -4,7 +4,7 @@ import android.annotation.*
 import android.graphics.drawable.*
 import android.os.*
 import android.widget.*
-import android.widget.AdapterView.OnItemClickListener
+import android.widget.AdapterView.*
 import androidx.core.content.*
 import com.fluidsimulation.*
 import com.fluidsimulation.base.*
@@ -15,35 +15,27 @@ class FragmentAnimation : BaseFragment<FragmentAnimationBinding>(FragmentAnimati
 
     private var fluidSelected: Int = 0
 
-    override fun create() {
-        arguments?.let {
+    override fun create() {}
 
-        }
-    }
+    override fun FragmentAnimationBinding.viewCreated() {}
 
-    override fun viewCreated() {
-    }
-
-    private fun initDefault() {
+    private fun FragmentAnimationBinding.initDefault() {
         activity?.apply context@{
-            binding?.apply {
-                val settings = (this@context as SettingsActivity).settings
-                fluidSelected = settings?.FluidType ?: 0
-                fluidTypeSmoke.isChecked = fluidSelected == 0
-                fluidTypeWater.isChecked = fluidSelected == 1
-                fluidTypeJello.isChecked = fluidSelected == 2
-                sliderLifeline.value = (settings?.velLifetimeInt ?: 0).toFloat()
-                sliderSwirliness.value = (settings?.swirlinessInt ?: 0).toFloat()
-                sliderSourceSpeed.value = (settings?.sourceSpeedInt ?: 0).toFloat()
-                isSourceEnableOnResume.isChecked = settings?.AutoOnResume ?: false
-            }
+            val settings = (this@context as SettingsActivity).settings
+            fluidSelected = settings?.FluidType ?: 0
+            fluidTypeSmoke.isChecked = fluidSelected == 0
+            fluidTypeWater.isChecked = fluidSelected == 1
+            fluidTypeJello.isChecked = fluidSelected == 2
+            sliderLifeline.value = (settings?.velLifetimeInt ?: 0).toFloat()
+            sliderSwirliness.value = (settings?.swirlinessInt ?: 0).toFloat()
+            sliderSourceSpeed.value = (settings?.sourceSpeedInt ?: 0).toFloat()
+            isSourceEnableOnResume.isChecked = settings?.AutoOnResume ?: false
         }
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun initListeners() {
+    override fun FragmentAnimationBinding.initListeners() {
         activity?.apply context@{
-            binding?.apply {
                 editPaintQuality.apply {
                     setDropDownBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.colorLightCard)))
                     val items = listOf("Lowest", "Low", "Medium", "High", "Very High", "Best")
@@ -146,21 +138,13 @@ class FragmentAnimation : BaseFragment<FragmentAnimationBinding>(FragmentAnimati
                 }
                 initDefault()
             }
-        }
     }
 
-    override fun initView() {
-
-    }
+    override fun FragmentAnimationBinding.initView() {}
 
     companion object {
 
         private const val TAG = "FragmentAnimation"
-        fun newInstance() =
-                FragmentAnimation().apply {
-                    arguments = Bundle().apply {
-
-                    }
-                }
+        fun newInstance() = FragmentAnimation()
     }
 }
