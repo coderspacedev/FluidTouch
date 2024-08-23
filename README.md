@@ -20,7 +20,7 @@
 - **Email:** thoriyaprahalad@gmail.com
 - **StackOverflow:** [Thoriya Prahalad](https://stackoverflow.com/users/9917404/thoriya-prahalad)
 - **LinkedIn:** [Thoriya Prahalad](www.linkedin.com/in/thoriya-prahalad)
-- **GitHub:** [techhuntdevelopers](https://github.com/techhuntdevelopers)
+- **GitHub:** [Coder Space](https://github.com/techhuntdevelopers)
 
 ### ⚠️ **License**
 
