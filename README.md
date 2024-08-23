@@ -2,12 +2,12 @@
 
 ### **Features**
 
-> *1. Fluid touch simulation,*  
-> *2. 40+ fluid presets,*  
-> *3. Adjust animation for fluid,*  
-> *4. Manage actions on swipe finger,*  
-> *5. Add extra particles on touch,*  
-> *6. Adjust swipe behaviour on screen.*
+*1. Fluid touch simulation,*  
+*2. 40+ fluid presets,*  
+*3. Adjust animation for fluid,*  
+*4. Manage actions on swipe finger,*  
+*5. Add extra particles on touch,*  
+*6. Adjust swipe behaviour on screen.*
 
 ### 📝 **About Me**
 
